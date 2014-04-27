@@ -12,7 +12,7 @@ class Interpretador {
     private String linhas[];
     
     public void interpreta(String l[]) {
-        this.linhas = l;
+        this.linhas = 1;
         
         for(int i = 0; i < this.linhas.length; i++) {
             if(this.linhas[i] != null) {
