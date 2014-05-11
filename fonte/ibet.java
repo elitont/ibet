@@ -1,27 +1,27 @@
 /**
  * Exemplo de interpretador.
  *
- * Esse é o ponto de partida para o interpretador da linguagem 'Blah'.
- * O único objetivo desse programa é instanciar um objeto Blah, que é
+ * Esse é o ponto de partida para o interpretador da linguagem 'ibet'.
+ * O único objetivo desse programa é instanciar um objeto ibet, que é
  * o interpretador da linguagem, passando para ele o caminho do arquivo
- * a ser interpretador. Para mais informações, veja o arquivo Blah.java
- *
- * Para executar, rode o seguinte comando no terminal:
- * java Blah ./teste.blah
+ * a ser interpretador. Para mais informações, veja o arquivo Ibet.java
  * 
- * Por Fernando Bevilacqua <fernando.bevilacqua@uffs.edu.br>
+ * Originalmente por: Fernando Bevilacqua <fernando.bevilacqua@uffs.edu.br>
+ * Modificado por: Eliton Traverssini e Igor Beilner
+ * <eliton.traverssini@gmail.com> <igor.beilner@hotmail.com>
+ *
  */
 
 import java.util.Scanner;
 import java.io.File;
 
-class Blah {
+class Ibet {
     public static void main(String args[]) {
         File f;
         Scanner s;
         Interpretador b;
         String linhas[] = new String[2000]; // arquivo pode ter, no máximo, 2000 linhas.
-        
+        String branco = new String();
         try {
             // Referencia o arquivo. args[0] conterá os dados passados pela linha de comando.
             f = new File(args[0]);
@@ -34,8 +34,14 @@ class Blah {
             // vetor "linhas".
             int i = 0;
             while(s.hasNext()) {
-                linhas[i] = s.nextLine();
-                i++;
+            branco = s.nextLine();
+                if(branco.equals("") != true){  
+                    branco = branco.replace("\t","");
+                    linhas[i] = branco.replace(" ", "");
+                    if(linhas[i].equals("") != true){
+                        i++;
+                    }
+                }
             }
             
             // Inicializamos o interpretador com o vetor de linhas. A partir
