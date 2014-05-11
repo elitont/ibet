@@ -22,27 +22,35 @@ class Interpretador {
         this.linhas = l;
         
         for(int i = 0; i < this.linhas.length; i++) {
-            if(this.linhas[i] != null) {	//testar 
-                if(i == 0 && this.linhas[0].equals("Inicio") == false){
+            if(this.linhas[i] != null) {    //testar 
+                if(i == 0 && this.linhas[0].equals("Inicio") == false){     //se nao contem Inicio da pau
                     op.erro(0);
                 }
+                if(this.linhas[i].contains("imprima") == false){            //deixa os espaços de impressao
+                    this.linhas[i] = this.linhas[i].replace("\t","");
+                    this.linhas[i] = this.linhas[i].replace(" ", "");
+                }
                 tokens(this.linhas[i]);
-                //System.out.println("Linha " + (i + 1) + ": " + this.linhas[i]);
             }
         }
     }
-   public int tokens(String a){
+   public void tokens(String a){
         String[] b;
 
-        b = a.split("[|]");
+        b = a.split("[|]");                 
         int i;
-        for(i = 0; i < b.length; i++){
-            System.out.println(b[i]);
+        for(i = 0; i < b.length; i++){      //imprime cada linha
+            //System.out.println(b[i]); 
         }
         
-        if(b[0].equals("double")) op.criaVariavel(b[1]); 
+        //verifica comandos especiais
 
-        return 1;
+        if(b[0].equals("double")) op.criaVariavel(b[1]);    
+        else if(b[0].contains("imprima")){
+            b[0] = b[0].replace("\t", "");
+            b[0] = b[0].replace(" ", "");
+            op.impressao(b[0], b[1]);
+        }
     }
 
 

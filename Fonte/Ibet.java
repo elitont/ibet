@@ -36,8 +36,7 @@ class Ibet {
             while(s.hasNext()) {
             branco = s.nextLine();
                 if(branco.equals("") != true){  
-                    branco = branco.replace("\t","");
-                    linhas[i] = branco.replace(" ", "");
+                    linhas[i] = branco;
                     if(linhas[i].equals("") != true){
                         i++;
                     }

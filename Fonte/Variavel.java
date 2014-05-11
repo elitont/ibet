@@ -3,6 +3,10 @@ class Variavel{
 	private String nome;
 	private Double valor;
 
+	public Variavel(){
+		valor = 0.0;
+	}
+
 	public void setNome(String a){
 		this.nome = a;
 	}
