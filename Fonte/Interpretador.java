@@ -45,12 +45,29 @@ class Interpretador {
         
         //verifica comandos especiais
 
-        if(b[0].equals("double")) op.criaVariavel(b[1]);    
+        if(b[0].equals("double")){
+            op.criaVariavel(b[1]);    
+        }
         else if(b[0].contains("imprima")){
             b[0] = b[0].replace("\t", "");
             b[0] = b[0].replace(" ", "");
             op.impressao(b[0], b[1]);
         }
+        else if(b[0].equals("se")){
+
+        }
+        else if(b[0].equals("enquanto")){
+
+        }
+        else if(b[0].equals("Inicio") == false && b[0].equals("Fim") == false && b[0].equals("fim_se") == false && b[0].equals("fim_enquanto") == false){     //atribuição (sem cmd especial)
+            if(b.length <= 6){
+                op.atribuicao(b);
+            }
+            else{
+                op.erro(3);
+            }
+        }
+
     }
 
 

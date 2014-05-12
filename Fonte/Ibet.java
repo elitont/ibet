@@ -21,7 +21,7 @@ class Ibet {
         Scanner s;
         Interpretador b;
         String linhas[] = new String[2000]; // arquivo pode ter, no máximo, 2000 linhas.
-        String branco = new String();
+        String branco = new String();       // linhas em branco ignoradas
         try {
             // Referencia o arquivo. args[0] conterá os dados passados pela linha de comando.
             f = new File(args[0]);
