@@ -60,7 +60,7 @@ class Interpretador {
 
         }
         else if(b[0].equals("Inicio") == false && b[0].equals("Fim") == false && b[0].equals("fim_se") == false && b[0].equals("fim_enquanto") == false){     //atribuição (sem cmd especial)
-            if(b.length <= 6){
+            if(b.length == 4 || b.length == 6){
                 op.atribuicao(b);
             }
             else{
