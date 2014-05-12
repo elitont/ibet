@@ -1,0 +1,8 @@
+Inicio
+	double |a|
+	double |b|
+	
+	|a| = |50|
+	|b = |a|
+	imprima|Valor de A = "+a|
+	imprima|Valor de B = "+b|
