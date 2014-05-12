@@ -9,7 +9,7 @@
  * Modificado por: Eliton Traverssini e Igor Beilner
  * <eliton.traverssini@gmail.com> <igor.beilner@hotmail.com>
  */
-
+//teste smart git
 class Interpretador {
     private String[] linhas;
     private Opera op;
