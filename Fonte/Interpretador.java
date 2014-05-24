@@ -14,8 +14,11 @@ class Interpretador {
     private String[] linhas;
     private Opera op;
     private int abre, fecha;	//escopos gerais
-    private int open, close;	//escopo condição falsa
-    private static int flag = 0; //condiçao falsa
+    private int open, close;	//escopo se falso
+    private int on, off;		//escopo laço falso
+    private static int flag; //condiçao falsa se
+    private static int flag2; //condiçao falsa laço
+
 
     public Interpretador(){
         op = new Opera();
@@ -23,13 +26,20 @@ class Interpretador {
         this.fecha = 0;
         this.open = 0;
         this.close = 0;
+        this.on = 0;
+        this.off = 0;
+        flag = 0;
+        flag2 = 0;
     }
 
     public void interpreta(String[] l) {
         this.linhas = l;
-        
+        int swap = 0, swap2 = 0;
         for(int i = 0; i < this.linhas.length; i++) {
             if(this.linhas[i] != null) {    //testar 
+            	if(flag2 == 0 && this.linhas[i].contains("enquanto|")){
+            		swap = i;
+            	}
             	if(this.linhas[i].contains("se|") || this.linhas[i].contains("enquanto|") || this.linhas[i].contains("Inicio")) {
             		this.abre++;
         		}
@@ -53,10 +63,25 @@ class Interpretador {
                 if((flag == 1) && this.linhas[i].contains("fim_se")){
                 	close++;
                 }
-                if(flag == 0) tokens(this.linhas[i]);
+                if(flag2 == 1 && this.linhas[i].contains("enquanto|")){
+                	on++;
+                }
+                if((flag2 == 1) && this.linhas[i].contains("fim_enquanto")){
+                	flag2 = 0;
+                	on = off = 0;
+                	off++;
+                	i = swap2+1;
+                }
+                else if(this.linhas[i].contains("fim_enquanto") && (on == off)){
+                	flag2 = 0;
+                	on = off = 0;
+                	swap2 = i;
+                	i = swap;
+                }
+                if(flag == 0 && flag2 == 0) tokens(this.linhas[i]);
             }
         }
-        if(this.abre != this.fecha) {
+        if(this.abre != this.fecha && swap == 0) {
             op.erro(9);
         }
     }
@@ -79,7 +104,7 @@ class Interpretador {
             if(op.condicao(b) == false) flag = 1;
         }
         else if(b[0].equals("enquanto")){
-
+        	if(op.condicao(b) == false) flag2 = 1;
         }
         else if(b[0].equals("Inicio") == false && b[0].equals("Fim") == false && b[0].equals("fim_se") == false && b[0].equals("fim_enquanto") == false){     //atribuição (sem cmd especial)
             if(b.length == 4 || b.length == 6){
