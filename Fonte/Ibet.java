@@ -50,7 +50,7 @@ class Ibet {
         } catch (Exception e) {
             System.out.println("Nao consegui ler o arquivo: " + (args.length > 0 ? args[0] : "(desconhecido)"));
             System.out.println("Uso:");
-            System.out.println("    java Ibet /caminho/para/arquivo.blah");
+            System.out.println("    java Ibet /caminho/para/arquivo.ibet");
         }
         
     }
