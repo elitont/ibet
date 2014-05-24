@@ -41,6 +41,12 @@ class Opera{
             case 8: 
                 System.out.println("Erro 8: Operação inválida.");
                 break;
+            case 9: 
+                System.out.println("Erro 9: Erro de escopo.");
+                break;
+            case 10: 
+                System.out.println("Erro 10: Comparação inválida.");
+                break;
         }
         System.exit(1);
     }
@@ -129,8 +135,41 @@ class Opera{
         else this.erro(5);
     }
 
-    public void condicao(){
-
+    
+    public boolean condicao(String[] expressao){
+        int end1 = this.verificaVariavel(expressao[1]);
+        int end2 = this.verificaVariavel(expressao[3]);
+        double valor1, valor2;
+        if(end1 == 0){
+            valor1 = this.getDouble(expressao[1]);
+        }else{
+            valor1 = this.vetor[end1].getValor();
+        }
+        if(end2 == 0){
+            valor2 = this.getDouble(expressao[3]);
+        }else{
+            valor2 = this.vetor[end2].getValor();
+        }
+        if(expressao[2].equals("==")){
+            return (valor1 == valor2);
+        }
+        else if(expressao[2].equals("!=")){
+            return (valor1 != valor2);
+        }
+        else if(expressao[2].equals(">=")){
+            return (valor1 >= valor2);
+        }
+        else if(expressao[2].equals("<=")){
+            return (valor1 <= valor2);
+        }
+        else if(expressao[2].equals(">")){
+            return (valor1 > valor2);
+        }
+        else if(expressao[2].equals("<")){
+            return (valor1 < valor2);
+        }
+        this.erro(10);
+        return false;
     }
 
     public void laco(){
