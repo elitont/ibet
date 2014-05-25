@@ -1,0 +1,28 @@
+Inicio
+	double |i|
+	double |j|
+
+	|i| = |0|
+	|j| = |i|
+
+	enquanto|i| < |3|
+
+		se|i| == |0|
+			imprima|Zero!|
+		fim_se
+		se|i| != |0|
+			imprima|Outro!|
+		fim_se
+
+		|i| = |i| + |1|
+
+	fim_enquanto
+	se|i| == |3|
+		se|j| == |0|
+			imprima|Ok!|
+		fim_se
+		se|j| != |0|
+			imprima|Erro!|
+		fim_se
+	fim_se
+Fim

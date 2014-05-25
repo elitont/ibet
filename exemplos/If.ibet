@@ -1,0 +1,11 @@
+Inicio
+	double |a|
+	|a| = |1|
+
+	se|a| > |1|
+		imprima|Maior!|
+	fim_se
+	se|a| <= |1|
+		imprima|Menor!|
+	fim_se
+Fim
