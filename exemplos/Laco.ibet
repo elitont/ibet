@@ -1,0 +1,12 @@
+Inicio
+	double |i|
+
+	|i| = |1|
+
+	enquanto|i| < |10|
+
+		imprima|+i|
+		|i| = |i| + |1|
+
+	fim_enquanto
+Fim
