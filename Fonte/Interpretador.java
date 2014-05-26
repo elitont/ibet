@@ -7,12 +7,11 @@ class Interpretador {
     private Opera op;
     private int abre, fecha;	        //escopos gerais
     private int open, close;	        //escopos "se", quando falso
-    private int on, off;		        //escopo "enquanto", quando falso
     private static int flag_se;         //condiçao falsa do "se"
     private static int flag_laco;       //condiçao falsa do "enquanto"
     private static int flag_laco_F;     //condiçao falsa do "enquanto"
-    private int swap[] = new int[50];
-    private int swap2[] = new int[50];
+    private int swap[];
+    private int swap2[];
     private int posicao_pilha;
 
     public Interpretador(){
@@ -21,19 +20,19 @@ class Interpretador {
         this.fecha = 0;
         this.open = 0;
         this.close = 0;
-        this.on = 0;
-        this.off = 0;
         flag_se = 0;
         flag_laco = 0;
         flag_laco_F = 0;
         posicao_pilha = 0;
+        swap = new int[50];
+        swap2 = new int[50];
     }
 
     public void interpreta(String[] l) {
         this.linhas = l;
         
         for(int i = 0; i < this.linhas.length; i++) {
-            if(this.linhas[i] != null) {    //testar 
+            if(this.linhas[i] != null) {    
                 //coloca a posição do enquanto na pilha quando a condição for verdadeira
             	if(flag_laco == 0 && this.linhas[i].contains("enquanto|")){
             		swap[posicao_pilha] = i;
@@ -73,26 +72,15 @@ class Interpretador {
                 	close++;
                 }
                 //---------------------------------------------------------------------------------------------------------
-                //quando a condição de um "enquanto" for falsa é necessário contar os escopos de "enquanto" anihados para desconsiderar
-                //apenas o código que está dentro do "enquanto" que deu condição falsa
-                if(flag_laco == 1 && this.linhas[i].contains("enquanto|")){
-                	on++;
-                }
-                if(flag_laco == 1 && this.linhas[i].contains("enquanto|")){
-                    off++;
-                }
-                //---------------------------------------------------------------------------------------------------------
                 //salta o código que está dentro do laço quando a condição for falsa
-                if((flag_laco == 1) && this.linhas[i].contains("fim_enquanto") && on == off){
+                if((flag_laco == 1) && this.linhas[i].contains("fim_enquanto")){
                 	flag_laco = 0;
-                	on = off = 0;
                 	if(flag_laco_F == 0) i = swap2[posicao_pilha]+1;
                     flag_laco_F = 0;
                 }
                 //retorna para a linha do "enquanto" para testar a condição novamente
-                else if(this.linhas[i].contains("fim_enquanto") && (on == off)){
+                else if(this.linhas[i].contains("fim_enquanto")){
                 	flag_laco = 0;
-                	on = off = 0;
                 	swap2[posicao_pilha] = i;
                 	i = swap[posicao_pilha];
                     //posicao_pilha--;
@@ -128,6 +116,9 @@ class Interpretador {
                 flag_laco = 1;
                 flag_laco_F = 1;
             }
+        }
+        else if(b[0].equals("leia")) {
+            op.scan(b[1]);
         }
         else if(b[0].equals("Inicio") == false && b[0].equals("Fim") == false && b[0].equals("fim_se") == false && b[0].equals("fim_enquanto") == false){     //atribuição (sem cmd especial)
             //length = 4 quando for atribuição e = 6 quando tiver operação
