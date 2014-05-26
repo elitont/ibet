@@ -208,6 +208,4 @@ class Opera{
         }
         else this.erro(3);
     }
-
-
 }
