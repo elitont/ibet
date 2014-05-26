@@ -1,4 +1,5 @@
 
+import java.util.Scanner;
 class Opera{
     private Variavel[] vetor; 
     private int controle;
@@ -51,12 +52,13 @@ class Opera{
         System.exit(1);
     }
 
-    public void setVetor(){
-
-    }
-
-    public void getVetor(){
-
+    void scan(String var){
+        int end = verificaVariavel(var);
+        if(end != 0){
+            Scanner s = new Scanner(System.in);
+            this.vetor[end].setValor(s.nextDouble());
+        }
+        else erro(6);
     }
 
     public void criaVariavel(String a){
