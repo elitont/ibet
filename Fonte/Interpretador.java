@@ -1,5 +1,5 @@
 /** 
- * Por: Eliton Traverssini e Igor Beilner
+ * Autores: Eliton Traverssini e Igor Beilner
  * <eliton.traverssini@gmail.com> <igor.beilner@hotmail.com>
  */
 class Interpretador {
