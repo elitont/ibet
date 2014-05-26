@@ -120,7 +120,7 @@ class Interpretador {
         else if(b[0].equals("leia")) {
             op.scan(b[1]);
         }
-        else if(b[0].equals("Inicio") == false && b[0].equals("Fim") == false && b[0].equals("fim_se") == false && b[0].equals("fim_enquanto") == false){     //atribuição (sem cmd especial)
+        else if(b[0].equals("#") == false && b[0].equals("Inicio") == false && b[0].equals("Fim") == false && b[0].equals("fim_se") == false && b[0].equals("fim_enquanto") == false){     //atribuição (sem cmd especial)
             //length = 4 quando for atribuição e = 6 quando tiver operação
             if(b.length == 4 || b.length == 6){
                 op.atribuicao(b);
