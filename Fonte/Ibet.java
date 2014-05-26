@@ -35,7 +35,7 @@ class Ibet {
             int i = 0;
             while(s.hasNext()) {
             branco = s.nextLine();
-                if(branco.equals("") != true){  
+                if(branco.equals("\t") != true && branco.equals("") != true){  
                     linhas[i] = branco;
                     if(linhas[i].equals("") != true){
                         i++;
