@@ -174,10 +174,6 @@ class Opera{
         return false;
     }
 
-    public void laco(){
-
-    }
-
     public int verificaVariavel(String var){
         int i;
         for(i = 1; i < this.controle; i++){
