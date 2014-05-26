@@ -1,0 +1,32 @@
+Inicio
+	double |i|
+	double |j|
+	double |c|
+
+	|i| = |0|
+	|j| = |i|
+	leia |c|
+
+	#|hgreqetha
+
+	enquanto|i| < |c|
+
+		se|i| == |0|
+			imprima|+j"+j"+c "  Zero!  "+c| gfadnba rthrs
+		fim_se
+		se|i| != |0|
+			imprima|+i|
+		fim_se
+
+		|i| = |i| + |1|
+
+	fim_enquanto
+	se|i| == |c|
+		se|j| == |0|
+			imprima|Ok!|
+		fim_se
+		se|j| != |0|
+			imprima|Erro!|
+		fim_se
+	fim_se
+Fim
