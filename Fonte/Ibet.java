@@ -1,16 +1,10 @@
 /**
- * Exemplo de interpretador.
+ * Alunos: Igor Beilner e Eliton Traverssini
+ * E-mails: igor.beilner@hotmail.com e eliton.traverssini@gmail.com
  *
- * Esse é o ponto de partida para o interpretador da linguagem 'ibet'.
- * O único objetivo desse programa é instanciar um objeto ibet, que é
- * o interpretador da linguagem, passando para ele o caminho do arquivo
- * a ser interpretador. Para mais informações, veja o arquivo Ibet.java
- * 
- * Originalmente por: Fernando Bevilacqua <fernando.bevilacqua@uffs.edu.br>
- * Modificado por: Eliton Traverssini e Igor Beilner
- * <eliton.traverssini@gmail.com> <igor.beilner@hotmail.com>
+ * Classe usada para ler o arquivo deconsiderando linhas em branco 
  *
- */
+**/    
 
 import java.util.Scanner;
 import java.io.File;
