@@ -1,4 +1,11 @@
-
+/**
+ * Alunos: Igor Beilner e Eliton Traverssini
+ * E-mails: igor.beilner@hotmail.com e eliton.traverssini@gmail.com
+ *
+ * Esta classe executa os comandos reoconhecidos na classe Interpretador
+ *
+ *
+**/  
 import java.util.Scanner;
 class Opera{
     private Variavel[] vetor; 
