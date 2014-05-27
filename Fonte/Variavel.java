@@ -1,4 +1,11 @@
-
+/**
+ * Alunos: Igor Beilner e Eliton Traverssini
+ * E-mails: igor.beilner@hotmail.com e eliton.traverssini@gmail.com
+ *
+ * Classe que representa um variével, é usada para escrever e/ou ler o valor das variáveis
+ *
+ *
+**/  
 class Variavel{
 	private String nome;
 	private Double valor;
