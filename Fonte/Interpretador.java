@@ -1,7 +1,11 @@
-/** 
- * Autores: Eliton Traverssini e Igor Beilner
- * <eliton.traverssini@gmail.com> <igor.beilner@hotmail.com>
- */
+/**
+ * Alunos: Igor Beilner e Eliton Traverssini
+ * E-mails: igor.beilner@hotmail.com e eliton.traverssini@gmail.com
+ *
+ * Classe usada para interpretar o código do arquivo, reconhece os comandos ou
+ * acusa um arro caso algum tenha ocorido
+ *
+**/  
 class Interpretador {
     private String[] linhas;
     private Opera op;
