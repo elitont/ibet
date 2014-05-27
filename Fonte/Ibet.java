@@ -4,7 +4,7 @@
  *
  * Classe usada para ler o arquivo deconsiderando linhas em branco 
  *
-**/    
+**/ 
 
 import java.util.Scanner;
 import java.io.File;
