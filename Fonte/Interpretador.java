@@ -32,7 +32,12 @@ class Interpretador {
         this.linhas = l;
         
         for(line = 0; line < this.linhas.length; line++) {
-            if(this.linhas[line] != null) {    
+            if(this.linhas[line] != null) {
+                //desconsidera a linha que contém imprima, para não retirar os espaços contidos na frase que será escrita
+                if(this.linhas[line].contains("imprima") == false){
+                    this.linhas[line] = this.linhas[line].replace("\t","");
+                    this.linhas[line] = this.linhas[line].replace(" ", "");
+                }
                 if(this.linhas[line].contains("enquanto|") && flag_laco != 0){
                     flag_laco++;
                 }
@@ -65,11 +70,6 @@ class Interpretador {
                 if(this.linhas[line].contains("fim_se") && (open == close)){
                 	flag_se = 0;
                 	open = close = 0;
-                }
-                //desconsidera a linha que contém imprima, para não retirar os espaços contidos na frase que será escrita
-                if(this.linhas[line].contains("imprima") == false){
-                    this.linhas[line] = this.linhas[line].replace("\t","");
-                    this.linhas[line] = this.linhas[line].replace(" ", "");
                 }
                 //---------------------------------------------------------------------------------------------------------
                 //quando a condição de um "se" for falsa é necessário contar os escopos de "se" anihados para desconsiderar
